@@ -1,0 +1,109 @@
+<html>
+
+<body style="text-align: center;">
+    <div>
+        <button onclick="prevDay()" style="color: red; font-size: 15px;"> Prev Day</button>
+        <button onclick="nextDay()" style="color: red; font-size: 15px;"> Next Day</button>
+        |||||
+        <button onclick="home()" style="color: red; font-size: 15px;"> Home/Today </button>
+        |||||
+        <button onclick="prev()" style="color: green; font-size: 15px;"> Prev Page</button>
+        <button onclick="next()" style="color: green; font-size: 15px;"> Next Page</button>
+        <pre id="dateDisplay" style="color: blue; font-size: 15px;"></pre>
+    </div>
+    <img style="width:100%; text-align: center; border: 1px solid;" id="displayImage" src="">
+</body>
+<script>
+
+    curentDay = 0
+    curentIndex = 0
+    pages = []
+
+    function setImage(index) {
+        dateAndPageDisplay()
+        document.getElementById("displayImage").src = pages[index]
+    }
+
+    function prevDay() {
+        curentDay++;
+        curentIndex = 0
+        initPage()
+    }
+
+    function nextDay() {
+        if (curentDay > 0) {
+            curentDay--;
+            curentIndex = 0
+        }
+        initPage()
+    }
+
+    function next() {
+        if (curentIndex < pages.length - 1) {
+            curentIndex++;
+        }
+        setImage(curentIndex)
+    }
+
+    function prev() {
+        if (curentIndex > 0) {
+            curentIndex--;
+        }
+        setImage(curentIndex)
+    }
+
+    function home() {
+        curentIndex = 0;
+        curentDay = 0;
+        setImage(curentIndex)
+    }
+
+    function dateAndPageDisplay() {
+        const date = new Date();
+        date.setDate(date.getDate() - curentDay);
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        const formattedDate = date.toLocaleDateString('en-GB', options);
+        document.getElementById("dateDisplay").innerHTML = "Paper Date: " + formattedDate + "          Page: " + (curentIndex + 1)
+    }
+
+    function initPage() {
+
+        const date = new Date();
+        date.setDate(date.getDate() - curentDay);
+        const formattedDate = date.toLocaleDateString('en-GB'); // For UK format: DD/MM/YYYY
+        console.log(formattedDate); // Outputs something like "11/10/2024"
+
+        paperType='https://epaper.sakshi.com/Home/GetAllpages?editionid=99&editiondate='
+        // paperType = 'https://epaper.andhrajyothy.com/Home/GetAllpages?editionid=34&editiondate='
+        // paperType = 'https://epaper.eenadu.net/Home/GetAllpages?editionid=2&isMag=0&&editiondate='
+
+        const paperUrl = paperType + formattedDate
+        const myHeaders = new Headers();
+        myHeaders.append("referrer", 'https://epaper.eenadu.net/Home/Index?date=' + formattedDate + '&eid=2&pid=27');
+        // myHeaders.append('Access-Control-Allow-Origin', '*')
+
+        fetch(paperUrl, {
+            headers: myHeaders
+        })
+            .then(response => response.json())
+            .then(data => {
+                pages = data.map(e => e.HighResolution).map(e => e.replace('_mr.jpg', '.jpg'))
+                setImage(0)
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    initPage()
+
+    document.addEventListener('keydown', (ev) => {
+        console.log(ev.key)
+        if (ev.key === "ArrowRight") {
+            next()
+        } else if (ev.key == "ArrowLeft") {
+            prev()
+        }
+    })
+
+</script>
+
+</html>
