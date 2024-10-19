@@ -2,6 +2,13 @@
 
 <body style="text-align: center;">
     <div>
+        <select onchange="initPage()" id="selectedPaper" style="color: green; font-size: 15px;">
+            <option value="https://epaper.sakshi.com/Home/GetAllpages?editionid=99&editiondate=">Saktshi</option>
+            <option value="https://epaper.eenadu.net/Home/GetAllpages?editionid=2&isMag=0&&editiondate=">EENADU</option>
+            <option value="https://epaper.andhrajyothy.com/Home/GetAllpages?editionid=34&editiondate=">AndhraJyothi
+            </option>
+            <option value="vv">Vaartha</option>
+        </select>
         <button onclick="prevDay()" style="color: red; font-size: 15px;"> Prev Day</button>
         <button onclick="nextDay()" style="color: red; font-size: 15px;"> Next Day</button>
         |||||
@@ -73,15 +80,21 @@
         const formattedDate = date.toLocaleDateString('en-GB'); // For UK format: DD/MM/YYYY
         console.log(formattedDate); // Outputs something like "11/10/2024"
 
-        paperType='https://epaper.sakshi.com/Home/GetAllpages?editionid=99&editiondate='
-        // paperType = 'https://epaper.andhrajyothy.com/Home/GetAllpages?editionid=34&editiondate='
-        // paperType = 'https://epaper.eenadu.net/Home/GetAllpages?editionid=2&isMag=0&&editiondate='
+
+        // paperType="eenadu11-10-2024.json"
+        //paperType = 'https://epaper.sakshi.com/Home/GetAllpages?editionid=99&editiondate='
+        //paperType = 'https://epaper.andhrajyothy.com/Home/GetAllpages?editionid=34&editiondate='
+        //paperType = 'https://epaper.eenadu.net/Home/GetAllpages?editionid=2&isMag=0&&editiondate='
+        paperType = document.getElementById('selectedPaper').value
 
         const paperUrl = paperType + formattedDate
         const myHeaders = new Headers();
-        myHeaders.append("referrer", 'https://epaper.eenadu.net/Home/Index?date=' + formattedDate + '&eid=2&pid=27');
+        myHeaders.append("referer", 'https://epaper.eenadu.net/Home/eid=2&pid=2788440&Index?date=' + formattedDate);
         // myHeaders.append('Access-Control-Allow-Origin', '*')
 
+
+        document.getElementById("dateDisplay").innerHTML = "LOADING......."
+        document.getElementById("displayImage").style.visibility = 'hidden'
         fetch(paperUrl, {
             headers: myHeaders
         })
@@ -89,6 +102,7 @@
             .then(data => {
                 pages = data.map(e => e.HighResolution).map(e => e.replace('_mr.jpg', '.jpg'))
                 setImage(0)
+                document.getElementById("displayImage").style.visibility = 'visible'
             })
             .catch(error => console.error('Error:', error));
     }
