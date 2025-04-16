@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            height: 100%;
+            width: auto;
+            display: block;
+            margin: auto;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            cursor: pointer;
+            user-select: none;
+        }
+        .left-arrow {
+            left: 10px;
+        }
+        .right-arrow {
+            right: 10px;
+        }
+        .image-count {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .slideshow-control {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <span class="arrow left-arrow" onclick="changeImage(-1)">&#9664;</span>
+        <img id="slider-image" src="https://ssl.cdn-redfin.com/photo/68/bigphoto/113/12310113_0.jpg" alt="House Image">
+        <span class="arrow right-arrow" onclick="changeImage(1)">&#9654;</span>
+        <div class="image-count" id="image-count">1</div>
+        <div class="slideshow-control" id="slideshow-control" onclick="toggleSlideshow()">Start Slideshow</div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const totalImages = 100;
+        //  const baseUrl = "https://ssl.cdn-redfin.com/photo/68/bigphoto/113/12310113_"; // longgrove
+        const baseUrl = "https://ssl.cdn-redfin.com/photo/68/bigphoto/301/12339301_"; // lincolnshire
+        let slideshowInterval = null;
+
+        document.getElementById('slider-image').src = `${baseUrl}0.jpg`;
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = totalImages - 1;
+            } else if (currentImageIndex >= totalImages) {
+                currentImageIndex = 0;
+            }
+            const newImageUrl = `${baseUrl}${currentImageIndex}_0.jpg`;
+            checkImage(newImageUrl, function(exists) {
+                if (exists) {
+                    document.getElementById('slider-image').src = newImageUrl;
+                    updateImageCount();
+                } else {
+                    currentImageIndex = 0;
+                    document.getElementById('slider-image').src = `${baseUrl}0.jpg`;
+                    updateImageCount();
+                }
+            });
+        }
+
+        function checkImage(url, callback) {
+            const img = new Image();
+            img.onload = function() {
+                callback(true);
+            };
+            img.onerror = function() {
+                callback(false);
+            };
+            img.src = url;
+        }
+
+        function updateImageCount() {
+            document.getElementById('image-count').textContent = `${currentImageIndex + 1}`;
+        }
+
+        function toggleSlideshow() {
+            const control = document.getElementById('slideshow-control');
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+                slideshowInterval = null;
+                control.textContent = 'Start Slideshow';
+            } else {
+                slideshowInterval = setInterval(() => changeImage(1), 3000);
+                control.textContent = 'Stop Slideshow';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeImage(1);
+            }
+        });
+    </script>
+</body>
+</html>
