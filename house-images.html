@@ -108,6 +108,11 @@
     </div>
     <script src="list-of-houses.js"></script>
     <script>
+
+        let currentImageIndex = 0;
+        const totalImages = 100;
+        let slideshowInterval = null;
+        
         baseUrl = icons[0].url
         address = icons[0].addr
 
@@ -121,15 +126,12 @@
             a.title= item.addr;
             a.onclick = ()=> {
                 baseUrl=item.url;
+                currentImageIndex=0;
                 document.getElementById('slider-image').src = `${item.url}0.jpg`;
             };
             li.appendChild(a);
             navList.appendChild(li);
         });
-
-        let currentImageIndex = 0;
-        const totalImages = 100;
-        let slideshowInterval = null;
 
         document.getElementById('slider-image').src = `${baseUrl}0.jpg`;
 
