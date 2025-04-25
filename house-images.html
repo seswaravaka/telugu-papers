@@ -175,7 +175,7 @@
                 slideshowInterval = null;
                 control.textContent = 'Start Slideshow';
             } else {
-                slideshowInterval = setInterval(() => changeImage(1), 3000);
+                slideshowInterval = setInterval(() => changeImage(1), 1000);
                 control.textContent = 'Stop Slideshow';
             }
         }
@@ -187,6 +187,9 @@
                 changeImage(1);
             }
         });
+
+        toggleSlideshow()
+        
     </script>
 </body>
 </html>
