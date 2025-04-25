@@ -99,6 +99,7 @@
         <img id="slider-image" src="https://ssl.cdn-redfin.com/photo/68/bigphoto/113/12310113_0.jpg" alt="House Image">
         <span class="arrow right-arrow" onclick="changeImage(1)">&#9654;</span>
         <div class="image-count" id="image-count">1</div>
+        <button class="fullscreen-btn" id="fullscreen-btn">Toggle Full Screen</button>
         <div class="slideshow-control" id="slideshow-control" onclick="toggleSlideshow()">Start Slideshow</div>
     </div>
     <div class="sidebar">
@@ -191,6 +192,17 @@
         });
 
         toggleSlideshow()
+
+        
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+        });
+
         
     </script>
 </body>
