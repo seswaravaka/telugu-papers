@@ -126,7 +126,7 @@
             a.title= item.addr;
             a.onclick = ()=> {
                 baseUrl=item.url;
-                currentImageIndex=0;
+                currentImageIndex=-1;
                 document.getElementById('slider-image').src = `${item.url}0.jpg`;
             };
             li.appendChild(a);
