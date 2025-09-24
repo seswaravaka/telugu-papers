@@ -5,5 +5,6 @@ const icons = [
             { addr: '3937 Lakeview Ct, Long Grove, IL 60047', url: "https://ssl.cdn-redfin.com/photo/68/bigphoto/463/12341463_", icon: '🏠' },
             { addr: 'Lincolnshire, 1.5M', url: 'https://ssl.cdn-redfin.com/photo/68/bigphoto/302/12347302_', icon: '🏠' },
             { addr: 'Lake zurich sold, 1.5M', url: 'https://ssl.cdn-redfin.com/photo/68/bigphoto/313/12125313_', icon: '🏠' },
-            { addr: 'Long grove, IL, 950K", url: 'https://ssl.cdn-redfin.com/photo/68/bigphoto/741/12358741_', icon: '🏠' }
+            { addr: 'Long grove, IL, 950K", url: 'https://ssl.cdn-redfin.com/photo/68/bigphoto/741/12358741_', icon: '🏠' },
+            { addr: '3902 Cuba Rd, Long Grove, IL 60047', url: 'https://ssl.cdn-redfin.com/photo/68/bigphoto/171/12455171_', icon: '🏠' },
         ];
