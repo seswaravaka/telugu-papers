@@ -1,151 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Resume</title>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #3498db;
-            --text: #333;
-            --light: #f4f7f6;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Experience Summary</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--light);
-            margin: 0;
-            padding: 20px;
-        }
+<style>
+    /* ------------------------------
+       THEME VARIABLES
+    ------------------------------ */
+    :root {
+        --bg: #fafafa;
+        --text: #222;
+        --heading: #111;
+        --border: #ddd;
+        --link: #0066cc;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+    body.dark {
+        --bg: #1c1c1c;
+        --text: #e5e5e5;
+        --heading: #ffffff;
+        --border: #444;
+        --link: #6bb6ff;
+    }
 
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
+    /* ------------------------------
+       BASE STYLES
+    ------------------------------ */
+    body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        transition: background 0.3s ease, color 0.3s ease;
+        line-height: 1.6;
+    }
 
-        h1 { margin: 0; color: var(--primary); font-size: 2.5em; }
-        .contact-info { color: var(--secondary); margin-top: 10px; }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
 
-        h2 {
-            border-left: 5px solid var(--accent);
-            padding-left: 15px;
-            color: var(--primary);
-            text-transform: uppercase;
-            font-size: 1.2em;
-            margin-top: 30px;
-        }
+    h1, h2 {
+        font-weight: 300;
+        color: var(--heading);
+        transition: color 0.3s ease;
+    }
 
-        .job, .education { margin-bottom: 20px; }
-        .job-title { font-weight: bold; color: var(--secondary); }
-        .company-date { display: flex; justify-content: space-between; font-style: italic; color: #666; }
-        
-        ul { padding-left: 20px; }
-        li { margin-bottom: 5px; }
+    h1 {
+        font-size: 42px;
+        text-align: center;
+        margin-top: 0;
+        letter-spacing: 1px;
+    }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 10px;
-        }
+    h2 {
+        font-size: 28px;
+        margin-top: 60px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 8px;
+    }
 
-        .skill-item {
-            background: var(--light);
-            padding: 8px;
-            border-radius: 4px;
-            text-align: center;
-            font-size: 0.9em;
-            border: 1px solid #ddd;
-        }
+    p {
+        font-size: 18px;
+        margin: 16px 0;
+    }
 
-        @media print {
-            body { background: #fff; padding: 0; }
-            .container { box-shadow: none; border: none; width: 100%; }
-        }
-    </style>
+    a {
+        color: var(--link);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* ------------------------------
+       TOGGLE SWITCH
+    ------------------------------ */
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: var(--text);
+        transition: color 0.3s ease;
+        user-select: none;
+    }
+
+    .switch {
+        position: relative;
+        width: 48px;
+        height: 24px;
+        background: var(--border);
+        border-radius: 12px;
+        transition: background 0.3s ease;
+    }
+
+    .switch::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 18px;
+        height: 18px;
+        background: var(--heading);
+        border-radius: 50%;
+        transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    body.dark .switch::after {
+        transform: translateX(24px);
+        background: var(--heading);
+    }
+</style>
+
 </head>
+
 <body>
 
-<div class="container">
-    <header>
-        <h1>YOUR NAME</h1>
-        <div class="contact-info">
-            City, State | 555-0123 | email@example.com <br>
-            <a href="#">LinkedIn Profile</a> | <a href="#">Portfolio/GitHub</a>
-        </div>
-    </header>
-
-    <section id="summary">
-        <h2>Professional Summary</h2>
-        <p>Results-driven professional with [Number] years of experience in [Your Industry]. Proven track record of [Key Achievement] and expertise in [Key Skill 1] and [Key Skill 2]. Committed to streamlining processes and delivering high-quality results.</p>
-    </section>
-
-    <section id="experience">
-        <h2>Experience</h2>
-        
-        <div class="job">
-            <div class="job-title">Senior [Job Role]</div>
-            <div class="company-date">
-                <span>Company Name</span>
-                <span>Jan 2021 – Present</span>
-            </div>
-            <ul>
-                <li>Led a team of 5 to successfully deliver [Project Name], resulting in a 20% increase in efficiency.</li>
-                <li>Developed and implemented new workflows using [Tool/Software].</li>
-                <li>Collaborated with cross-functional teams to resolve [Common Problem].</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <div class="job-title">[Job Role]</div>
-            <div class="company-date">
-                <span>Previous Company</span>
-                <span>June 2018 – Dec 2020</span>
-            </div>
-            <ul>
-                <li>Managed daily operations for [Department], ensuring 100% compliance with industry standards.</li>
-                <li>Reduced operational costs by 15% through strategic vendor negotiations.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item">JavaScript</div>
-            <div class="skill-item">HTML/CSS</div>
-            <div class="skill-item">Python</div>
-            <div class="skill-item">Project Mgmt</div>
-            <div class="skill-item">SQL</div>
-            <div class="skill-item">Public Speaking</div>
-        </div>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <div class="education">
-            <div class="job-title">Bachelor of Science in [Your Major]</div>
-            <div class="company-date">
-                <span>University Name, City</span>
-                <span>Graduated 2018</span>
-            </div>
-        </div>
-    </section>
+<!-- THEME TOGGLE BUTTON -->
+<div class="theme-toggle" onclick="toggleTheme()">
+    <span>☀️ / 🌙</span>
+    <div class="switch"></div>
 </div>
+
+<div class="container">
+    <h1>Experience Summary</h1>
+
+    <h2>Sample Section</h2>
+    <p>This page now supports both dark and light themes with a simple toggle switch in the top‑right corner.</p>
+
+    <!-- Add your full content here -->
+</div>
+
+<script>
+    /* ------------------------------
+       TOGGLE THEME MODE
+    ------------------------------ */
+    function toggleTheme() {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+    }
+
+    /* ------------------------------
+       LOAD SAVED THEME ON PAGE LOAD
+    ------------------------------ */
+    (function() {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark") {
+            document.body.classList.add("dark");
+        }
+    })();
+</script>
 
 </body>
 </html>
