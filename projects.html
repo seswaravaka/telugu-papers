@@ -35,12 +35,15 @@
     h1, h2 {
         font-weight: 300;
         color: var(--heading);
+        transition: color 0.3s ease;
     }
 
     h1 {
         font-size: 42px;
         text-align: center;
         margin-top: 0;
+        letter-spacing: 1px;
+        padding-top: 40px;
     }
 
     p {
@@ -56,6 +59,8 @@
         justify-content: center;
         margin-top: 30px;
         border-bottom: 1px solid var(--border);
+        flex-wrap: wrap;
+        padding: 0 10px;
     }
 
     .tab {
@@ -66,6 +71,7 @@
         transition: 0.3s ease;
         color: var(--heading);
         user-select: none;
+        margin: 0 6px;
     }
 
     .tab.active {
@@ -82,10 +88,16 @@
         padding: 20px;
         max-width: 900px;
         margin: 0 auto;
+        animation: fadeIn 0.25s ease;
     }
 
     .tab-content.active {
         display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 
     /* ------------------------------
@@ -101,15 +113,18 @@
         gap: 8px;
         font-size: 14px;
         color: var(--text);
+        transition: color 0.3s ease;
         user-select: none;
+        z-index: 1000;
     }
 
     .switch {
+        position: relative;
         width: 48px;
         height: 24px;
         background: var(--border);
         border-radius: 12px;
-        position: relative;
+        transition: background 0.3s ease;
     }
 
     .switch::after {
@@ -121,11 +136,21 @@
         height: 18px;
         background: var(--heading);
         border-radius: 50%;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, background 0.3s ease;
     }
 
     body.dark .switch::after {
         transform: translateX(24px);
+        background: var(--heading);
+    }
+
+    a {
+        color: var(--link);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 </style>
 </head>
@@ -152,87 +177,122 @@
 
 <!-- TAB CONTENT SECTIONS -->
 
+<!-- MANAGEMENT -->
 <div id="management" class="tab-content active">
     <h2>Management Experience Summary</h2>
-    <p><strong>Senior Engineering Leadership:</strong> Over two decades of experience leading software engineering organizations...</p>
-    <p><strong>Organizational Growth & Team Building:</strong> Scaled engineering organizations...</p>
-    <p><strong>People Management & Mentorship:</strong> Managed senior managers...</p>
-    <p><strong>Strategic Planning & Budget Ownership:</strong> Owned release budgeting...</p>
-    <p><strong>Delivery & Execution Management:</strong> Held end‑to‑end ownership...</p>
-    <p><strong>Cross‑Functional Collaboration:</strong> Worked closely with product...</p>
-    <p><strong>Balanced Technical & People Leadership:</strong> Hybrid 70/30 role...</p>
-    <p><strong>Process & Quality Leadership:</strong> Established engineering best practices...</p>
+
+    <p><strong>Senior Engineering Leadership:</strong> Over two decades of experience leading software engineering organizations within product‑focused companies, combining technical decision‑making with people and delivery management.</p>
+
+    <p><strong>Organizational Growth & Team Building:</strong> Scaled engineering organizations from small startup‑style teams to large, multi‑hundred‑member groups by hiring top talent, defining roles, and establishing strong engineering cultures focused on trust, collaboration, and accountability.</p>
+
+    <p><strong>People Management & Mentorship:</strong> Directly managed senior managers and team leads; mentored direct reports and peers; emphasized coaching, career development, and continuous learning to build high‑performing, motivated teams.</p>
+
+    <p><strong>Strategic Planning & Budget Ownership:</strong> Owned release budgeting, resource planning, and hiring strategies while aligning engineering execution with organizational priorities and long‑term product roadmaps.</p>
+
+    <p><strong>Delivery & Execution Management:</strong> Held end‑to‑end ownership of deliverables, ensuring timely execution across the full project lifecycle; decomposed epics into actionable work, tracked progress, managed risks, and maintained quality standards.</p>
+
+    <p><strong>Cross‑Functional Collaboration:</strong> Worked closely with product, architecture, DevOps, QA, and business stakeholders; fostered open dialogue around design and strategy; managed dependencies with empathy and clarity.</p>
+
+    <p><strong>Balanced Technical & People Leadership:</strong> Operated in hybrid roles with approximately 70% technical leadership and 30% management responsibilities, enabling informed decision‑making and credibility at all levels of the organization.</p>
+
+    <p><strong>Process & Quality Leadership:</strong> Established engineering best practices for planning, code reviews, CI/CD, security, and compliance; guided teams toward maintainable, high‑quality solutions aligned with company goals.</p>
 </div>
 
+<!-- CROSS TEAM -->
 <div id="cross-team" class="tab-content">
-    <h2>Cross‑Team Collaboration & Execution</h2>
-    <p><strong>Cross‑Functional Leadership:</strong> Partnered with product...</p>
-    <p><strong>Distributed & Multi‑Team Coordination:</strong> Coordinated across global teams...</p>
-    <p><strong>Driving Execution Through Influence:</strong> Enabled progress without relying on authority...</p>
-    <p><strong>Clear Communication & Alignment:</strong> Promoted open dialogue...</p>
-    <p><strong>Dependency & Risk Management:</strong> Identified dependencies...</p>
-    <p><strong>Culture of Trust & Ownership:</strong> Fostered strong relationships...</p>
-    <p><strong>End‑to‑End Delivery Ownership:</strong> Maintained accountability...</p>
+    <h2>Cross‑Team Collaboration & Execution Experience</h2>
+
+    <p><strong>Cross‑Functional Leadership:</strong> Partnered closely with product management, architecture, DevOps, QA, operations, and business stakeholders to align requirements, designs, and delivery plans.</p>
+
+    <p><strong>Distributed & Multi‑Team Coordination:</strong> Led and coordinated work across geographically distributed teams and multiple engineering groups.</p>
+
+    <p><strong>Driving Execution Through Influence:</strong> Broke down complex initiatives into actionable work and resolved dependencies without relying solely on formal authority.</p>
+
+    <p><strong>Clear Communication & Alignment:</strong> Ensured teams had shared context, clear priorities, and alignment throughout execution.</p>
+
+    <p><strong>Dependency & Risk Management:</strong> Proactively identified cross‑team dependencies and risks and coordinated sequencing of work.</p>
+
+    <p><strong>Culture of Trust & Ownership:</strong> Fostered trust‑based relationships enabling teams to surface issues early and jointly own outcomes.</p>
+
+    <p><strong>End‑to‑End Delivery Ownership:</strong> Maintained accountability across team boundaries from estimation through implementation and release.</p>
 </div>
 
+<!-- ARCHITECTURE -->
 <div id="architecture" class="tab-content">
-    <h2>System & Architectural Design</h2>
-    <p><strong>End‑to‑End System Design Ownership:</strong> Led architecture for large‑scale platforms...</p>
-    <p><strong>Modern Architecture Patterns:</strong> Monolithic, SOA, microservices...</p>
-    <p><strong>Cloud‑Native & Deployment Design:</strong> Kubernetes, AWS, Helm...</p>
-    <p><strong>API & Integration Design:</strong> REST, SOAP, event‑driven...</p>
-    <p><strong>Event‑Driven & Data Platforms:</strong> Kafka, streaming...</p>
-    <p><strong>Security‑First Design:</strong> SSO, OAuth, PKI...</p>
-    <p><strong>Operational & Observability:</strong> Prometheus, Grafana...</p>
-    <p><strong>Design Communication & Documentation:</strong> Architecture diagrams...</p>
+    <h2>System & Architectural Design Experience</h2>
+
+    <p><strong>End‑to‑End System Design Ownership:</strong> Led architecture and design for large‑scale enterprise platforms spanning portals, backend services, data platforms, and cloud infrastructure.</p>
+
+    <p><strong>Modern Architecture Patterns:</strong> Designed and evolved systems using monolithic, SOA, and microservices architectures.</p>
+
+    <p><strong>Cloud‑Native & Deployment Design:</strong> Architected cloud‑native applications and deployment models using Kubernetes, OpenShift, and AWS.</p>
+
+    <p><strong>API & Integration Design:</strong> Designed interoperable service interfaces using REST, SOAP, and event‑driven models.</p>
+
+    <p><strong>Event‑Driven & Data Platform Design:</strong> Built scalable distributed data and messaging architectures using Kafka, streaming, and big data frameworks.</p>
+
+    <p><strong>Security‑First Design:</strong> Integrated authentication, authorization, and compliance into system designs including SSO, OAuth2, PKI, and enterprise security requirements.</p>
+
+    <p><strong>Operational & Observability Design:</strong> Defined monitoring and logging strategies using tools like Prometheus and Grafana.</p>
+
+    <p><strong>Design Communication & Documentation:</strong> Produced architectural diagrams, design documents, and technical specifications.</p>
 </div>
 
+<!-- TECHNICAL SKILLS -->
 <div id="skills" class="tab-content">
     <h2>Technical Skills Summary</h2>
-    <p><strong>Cloud & Platform:</strong> Kubernetes, K3S, OpenShift, AWS.</p>
-    <p><strong>Backend & Data:</strong> Java, Go, Python, Kafka, Flink...</p>
-    <p><strong>Frontend:</strong> TypeScript, Angular, JavaScript...</p>
-    <p><strong>Security & Identity:</strong> OAuth2, LDAP, Keycloak...</p>
-    <p><strong>Standards:</strong> 3GPP, JITC, CIS Benchmarks...</p>
-    <p><strong>DevOps & Automation:</strong> Jenkins, Ansible...</p>
-    <p><strong>Databases:</strong> Oracle, Postgres, MongoDB...</p>
-    <p><strong>Protocols:</strong> REST, SOAP, WebSocket...</p>
+
+    <p><strong>Cloud, Platform & Systems Engineering:</strong> Kubernetes (K8S), K3S, OpenShift, AWS.</p>
+
+    <p><strong>Backend, Distributed Systems & Data Platforms:</strong> Java, Go, Python, C, C++; Spring, SOA, microservices; Kafka, KsqlDB, Flink, Spark, Iceberg, Hive.</p>
+
+    <p><strong>Frontend, UI & Client Technologies:</strong> TypeScript, JavaScript, Angular 1.x–16+, HTML5, CSS, hybrid mobile apps.</p>
+
+    <p><strong>Security, Identity & Hardening:</strong> Spring Security, LDAP, Keycloak, CAS, OAuth2, JWT, PKI, certificate management.</p>
+
+    <p><strong>Standards‑Based Implementation & Compliance:</strong> 3GPP, JITC, CIS Benchmarks, FIPS, DoD security.</p>
+
+    <p><strong>DevOps, CI/CD & Automation:</strong> Jenkins, Kubernetes, Playwright, Artifactory, Ansible, Salt, confd.</p>
+
+    <p><strong>Databases, Observability & Operations:</strong> Oracle, DB2, SQL Server, MySQL, Postgres, MongoDB, CouchDB, Cassandra; Prometheus, Grafana.</p>
+
+    <p><strong>Enterprise Integration & Protocols:</strong> REST, SOAP, WebSocket, SSE, WebRTC, JNI.</p>
 </div>
 
+<!-- CERTIFICATIONS -->
 <div id="certifications" class="tab-content">
     <h2>Certifications</h2>
+
     <p>Certified Kubernetes Administrator (CKA) – 2024</p>
     <p>Certified Kubernetes Architect – 2017</p>
-    <p>Angular Developer – 2016</p>
+    <p>Angular Developer Certification – 2016</p>
     <p>Spring Certified Professional – 2013</p>
-    <p>SQL Server Developer – 2012</p>
-    <p>Linux Essentials – 2012</p>
-    <p>Adobe Flex & ActionScript – 2011</p>
-    <p>Java Certified Web Services – 2006</p>
-    <p>Java Developer – 2005</p>
+    <p>SQL Server Developer Certification – 2012</p>
+    <p>Linux Essentials Certification – 2012</p>
+    <p>Adobe Flex & ActionScript Developer Certification – 2011</p>
+    <p>Java Certified Web Services Developer – 2006</p>
+    <p>Java Developer Certification – 2005</p>
 </div>
 
+<!-- PATENTS -->
 <div id="patents" class="tab-content">
     <h2>Patents</h2>
-    <p><a href="https://patents.google.com/patent/CA3147751A1" target="_blank">
-        CA3147751A1 – Secure hosting for shared spectrum access systems
-    </a></p>
-    <p><a href="https://patents.google.com/patent/CA3054407A1" target="_blank">
-        CA3054407A1 – Adaptive capacity tracking in wireless networks
-    </a></p>
-    <p><a href="https://patents.google.com/patent/CA3074707A1" target="_blank">
-        CA3074707A1 – Edge‑based location‑specific LTE warning system
-    </a></p>
-    <p><a href="https://patents.google.com/patent/CA3109952A1" target="_blank">
-        CA3109952A1 – Private subnetworks of LTE base stations
-    </a></p>
+
+    <p><a href="https://patents.google.com/patent/CA3147751A1" target="_blank">CA3147751A1 – Secure hosting for shared spectrum access systems</a></p>
+
+    <p><a href="https://patents.google.com/patent/CA3054407A1" target="_blank">CA3054407A1 – Adaptive capacity tracking in wireless networks</a></p>
+
+    <p><a href="https://patents.google.com/patent/CA3074707A1" target="_blank">CA3074707A1 – Edge‑based location‑specific LTE warning system</a></p>
+
+    <p><a href="https://patents.google.com/patent/CA3109952A1" target="_blank">CA3109952A1 – Private subnetworks of LTE base stations</a></p>
 </div>
 
 <script>
     /* Theme Toggle */
     function toggleTheme() {
         document.body.classList.toggle("dark");
-        localStorage.setItem("theme",
+        localStorage.setItem(
+            "theme",
             document.body.classList.contains("dark") ? "dark" : "light"
         );
     }
@@ -257,4 +317,3 @@
 
 </body>
 </html>
-``
