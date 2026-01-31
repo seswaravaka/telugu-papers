@@ -1,282 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XRAN Platforms & Management Systems – JMA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Resume</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --text: #333;
+            --light: #f4f7f6;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      background: #ffffff;
-      color: #111;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Inter, Helvetica, Arial, sans-serif;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            margin: 0;
+            padding: 20px;
+        }
 
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 90px 24px 120px;
-    }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-    h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 3rem;
-      font-weight: 500;
-      line-height: 1.15;
-      margin-bottom: 56px;
-    }
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
 
-    h2 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 90px;
-      margin-bottom: 22px;
-    }
+        h1 { margin: 0; color: var(--primary); font-size: 2.5em; }
+        .contact-info { color: var(--secondary); margin-top: 10px; }
 
-    p {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      margin-bottom: 22px;
-    }
+        h2 {
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 1.2em;
+            margin-top: 30px;
+        }
 
-    ul {
-      margin: 16px 0 36px 22px;
-      padding: 0;
-    }
+        .job, .education { margin-bottom: 20px; }
+        .job-title { font-weight: bold; color: var(--secondary); }
+        .company-date { display: flex; justify-content: space-between; font-style: italic; color: #666; }
+        
+        ul { padding-left: 20px; }
+        li { margin-bottom: 5px; }
 
-    li {
-      margin-bottom: 12px;
-      line-height: 1.65;
-    }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
 
-    .muted {
-      color: #555;
-    }
+        .skill-item {
+            background: var(--light);
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+        }
 
-    hr {
-      border: none;
-      border-top: 1px solid #e5e5e5;
-      margin: 90px 0;
-    }
-
-    footer {
-      margin-top: 140px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
+        @media print {
+            body { background: #fff; padding: 0; }
+            .container { box-shadow: none; border: none; width: 100%; }
+        }
+    </style>
 </head>
-
 <body>
-  <main class="container">
 
-    <h1>
-      XRAN Product Platforms<br/>
-      & Management Systems<br/>
-      <span class="muted">JMA Experience</span>
-    </h1>
+<div class="container">
+    <header>
+        <h1>YOUR NAME</h1>
+        <div class="contact-info">
+            City, State | 555-0123 | email@example.com <br>
+            <a href="#">LinkedIn Profile</a> | <a href="#">Portfolio/GitHub</a>
+        </div>
+    </header>
 
-    <p>
-      At JMA, I owned and delivered large‑scale XRAN product platforms
-      and management systems over a ten‑year period. My work spanned
-      backend systems, hosted portals, customer‑specific integrations,
-      and long‑term product delivery across multiple releases.
-    </p>
+    <section id="summary">
+        <h2>Professional Summary</h2>
+        <p>Results-driven professional with [Number] years of experience in [Your Industry]. Proven track record of [Key Achievement] and expertise in [Key Skill 1] and [Key Skill 2]. Committed to streamlining processes and delivering high-quality results.</p>
+    </section>
 
-    <hr/>
+    <section id="experience">
+        <h2>Experience</h2>
+        
+        <div class="job">
+            <div class="job-title">Senior [Job Role]</div>
+            <div class="company-date">
+                <span>Company Name</span>
+                <span>Jan 2021 – Present</span>
+            </div>
+            <ul>
+                <li>Led a team of 5 to successfully deliver [Project Name], resulting in a 20% increase in efficiency.</li>
+                <li>Developed and implemented new workflows using [Tool/Software].</li>
+                <li>Collaborated with cross-functional teams to resolve [Common Problem].</li>
+            </ul>
+        </div>
 
-    <h2>Project Ownership</h2>
+        <div class="job">
+            <div class="job-title">[Job Role]</div>
+            <div class="company-date">
+                <span>Previous Company</span>
+                <span>June 2018 – Dec 2020</span>
+            </div>
+            <ul>
+                <li>Managed daily operations for [Department], ensuring 100% compliance with industry standards.</li>
+                <li>Reduced operational costs by 15% through strategic vendor negotiations.</li>
+            </ul>
+        </div>
+    </section>
 
-    <p>
-      I owned and delivered three primary categories of projects,
-      covering both core product platforms and customer‑facing systems.
-    </p>
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">HTML/CSS</div>
+            <div class="skill-item">Python</div>
+            <div class="skill-item">Project Mgmt</div>
+            <div class="skill-item">SQL</div>
+            <div class="skill-item">Public Speaking</div>
+        </div>
+    </section>
 
-    <ul>
-      <li>
-        <strong>Product backends and portals</strong>, including the
-        XRAN platform, XOAS Portal, and Supervisor Portals.
-      </li>
-      <li>
-        <strong>Hosted applications and portals</strong>, such as the
-        RA Portal, XRAN Licensing Portal, SDRU Credits Portal, and
-        integrations with SAP and Flexera.
-      </li>
-      <li>
-        <strong>Customer‑specific applications and portals</strong>,
-        delivering custom XRAN portals and integrations tailored to
-        individual customer environments.
-      </li>
-    </ul>
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education">
+            <div class="job-title">Bachelor of Science in [Your Major]</div>
+            <div class="company-date">
+                <span>University Name, City</span>
+                <span>Graduated 2018</span>
+            </div>
+        </div>
+    </section>
+</div>
 
-    <hr/>
-
-    <h2>XRAN Management Platform</h2>
-
-    <p>
-      I designed and developed a centralized management platform for
-      XRAN products, providing unified control and visibility across
-      the entire product lifecycle.
-    </p>
-
-    <p>
-      The platform supports configuration management, performance
-      monitoring, fault and alarm handling, log management, system
-      monitoring, and software installation and upgrades.
-    </p>
-
-    <p>
-      Architecturally, the system is built using PostgreSQL and
-      Spring Boot–based microservices, with REST APIs, Kafka events,
-      and streaming connections enabling scalable data ingestion
-      and communication.
-    </p>
-
-    <p>
-      All services are containerized and deployed on Kubernetes‑based
-      clusters, including k3s and OpenShift.
-    </p>
-
-    <hr/>
-
-    <h2>Architecture & Implementation</h2>
-
-    <p>
-      I designed service boundaries, inter‑service communication
-      patterns, and data exchange contracts. Services were packaged
-      as Docker images and deployed as microservices.
-    </p>
-
-    <p>
-      Kafka was used extensively for inter‑service communication,
-      enabling a near event‑driven architecture across the platform.
-      REST APIs and streaming connections supported both synchronous
-      and real‑time data flows.
-    </p>
-
-    <p>
-      APIs were published using OpenAPI 3.0 / Swagger, and SDKs were
-      developed and shared with customers to support external
-      integrations with the centralized management system.
-    </p>
-
-    <hr/>
-
-    <h2>Security & Access Management</h2>
-
-    <p>
-      Security was a core design principle. I implemented OAuth2 and
-      OpenID Connect authentication across all user‑facing services.
-      Istio was used as the service mesh gateway, with oauth2‑proxy
-      providing authentication and authorization enforcement.
-    </p>
-
-    <p>
-      The platform integrated with Keycloak, customized for product‑
-      specific requirements, and supported customer directory
-      integrations including LDAP, Active Directory, and external
-      identity providers.
-    </p>
-
-    <p>
-      SAML integration was implemented for customer environments such
-      as Verizon, along with mutual TLS authentication using
-      certificates.
-    </p>
-
-    <hr/>
-
-    <h2>APIs & Integrations</h2>
-
-    <p>
-      I collaborated closely with customers and system integrators,
-      including Cisco, SoftBank, and Wind Tre, to support integrations
-      with external systems.
-    </p>
-
-    <p>
-      In addition to REST APIs, SOAP APIs and SDKs were developed using
-      JAX‑WS. These interfaces were later deprecated in favor of
-      modern REST‑based integrations.
-    </p>
-
-    <hr/>
-
-    <h2>Operations, Monitoring & Automation</h2>
-
-    <p>
-      I designed and implemented automated configuration management
-      with backup and continuous validation, ensuring that correct
-      configurations were consistently applied across all managed
-      elements.
-    </p>
-
-    <p>
-      Prometheus was used to collect performance metrics from all
-      nodes, with Grafana providing visualization and dashboards.
-      Centralized logging, fault handling, and alarm management were
-      built into the platform.
-    </p>
-
-    <p>
-      NGINX was integrated for front‑end traffic handling and
-      request routing.
-    </p>
-
-    <hr/>
-
-    <h2>Configuration Management & Orchestration</h2>
-
-    <p>
-      The platform integrated with SaltStack using CherryPy REST APIs
-      to support configuration and orchestration workflows.
-    </p>
-
-    <p>
-      Ansible jobs were used to invoke automation playbooks, which in
-      turn triggered Helm chart deployments on targeted Kubernetes
-      clusters.
-    </p>
-
-    <hr/>
-
-    <h2>UI & Real‑Time Communication</h2>
-
-    <p>
-      User interfaces were developed using Angular. Real‑time updates
-      were delivered to the UI using WebSockets and Server‑Sent Events
-      (SSE).
-    </p>
-
-    <p>
-      Kafka listeners, Kafka Streams, and producers were implemented
-      to support real‑time event processing and data propagation.
-    </p>
-
-    <hr/>
-
-    <h2>Release Management & Delivery</h2>
-
-    <p>
-      XRAN product development followed a release‑based model, with
-      each release treated as an individual project and owned end‑to‑
-      end by the team.
-    </p>
-
-    <p>
-      Over a ten‑year period, I managed the design and delivery of more
-      than 30 major and minor releases, coordinating architecture,
-      development, and delivery across teams.
-    </p>
-
-    <footer>
-      <p>XRAN Platform Experience · JMA</p>
-    </footer>
-
-  </main>
 </body>
 </html>
