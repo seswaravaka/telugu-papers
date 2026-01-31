@@ -3,20 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XRAN Platforms – JMA Experience</title>
+  <title>XRAN Platforms & Management Systems – JMA</title>
 
   <style>
-    :root {
-      --text-main: #111;
-      --text-muted: #555;
-      --accent: #000;
-      --bg: #ffffff;
-    }
-
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text-main);
+      background: #ffffff;
+      color: #111;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                    Inter, Helvetica, Arial, sans-serif;
     }
@@ -24,7 +17,7 @@
     .container {
       max-width: 720px;
       margin: 0 auto;
-      padding: 80px 24px 120px;
+      padding: 90px 24px 120px;
     }
 
     h1 {
@@ -32,49 +25,48 @@
       font-size: 3rem;
       font-weight: 500;
       line-height: 1.15;
-      margin-bottom: 48px;
+      margin-bottom: 56px;
     }
 
     h2 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-top: 80px;
-      margin-bottom: 20px;
+      margin-top: 90px;
+      margin-bottom: 22px;
     }
 
     p {
       font-size: 1.05rem;
       line-height: 1.75;
-      margin-bottom: 20px;
-      color: var(--text-main);
+      margin-bottom: 22px;
     }
 
     ul {
-      margin: 16px 0 32px 20px;
+      margin: 16px 0 36px 22px;
       padding: 0;
     }
 
     li {
-      margin-bottom: 10px;
-      line-height: 1.6;
+      margin-bottom: 12px;
+      line-height: 1.65;
     }
 
     .muted {
-      color: var(--text-muted);
+      color: #555;
     }
 
-    .divider {
-      margin: 80px 0;
+    hr {
       border: none;
       border-top: 1px solid #e5e5e5;
+      margin: 90px 0;
     }
 
     footer {
-      margin-top: 120px;
+      margin-top: 140px;
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: #666;
     }
   </style>
 </head>
@@ -83,40 +75,208 @@
   <main class="container">
 
     <h1>
-      XRAN Product Platforms & Management Systems<br/>
+      XRAN Product Platforms<br/>
+      & Management Systems<br/>
       <span class="muted">JMA Experience</span>
     </h1>
 
     <p>
-      At JMA, I owned and delivered large‑scale product platforms and
-      management systems supporting XRAN products across multiple
-      customer environments. My work spanned backend platforms,
-      hosted portals, customer‑specific integrations, and long‑term
-      product delivery.
+      At JMA, I owned and delivered large‑scale XRAN product platforms
+      and management systems over a ten‑year period. My work spanned
+      backend systems, hosted portals, customer‑specific integrations,
+      and long‑term product delivery across multiple releases.
     </p>
+
+    <hr/>
 
     <h2>Project Ownership</h2>
 
     <p>
-      I owned and delivered three primary categories of projects:
+      I owned and delivered three primary categories of projects,
+      covering both core product platforms and customer‑facing systems.
     </p>
 
     <ul>
       <li>
-        <strong>Product backends and portals</strong> including the
+        <strong>Product backends and portals</strong>, including the
         XRAN platform, XOAS Portal, and Supervisor Portals.
       </li>
       <li>
-        <strong>Hosted applications and portals</strong> such as the
+        <strong>Hosted applications and portals</strong>, such as the
         RA Portal, XRAN Licensing Portal, SDRU Credits Portal, and
         integrations with SAP and Flexera.
       </li>
       <li>
         <strong>Customer‑specific applications and portals</strong>,
-        tailored to individual customer environments and operational
-        requirements.
+        delivering custom XRAN portals and integrations tailored to
+        individual customer environments.
       </li>
     </ul>
 
-    <hr class="divider"/>
+    <hr/>
 
+    <h2>XRAN Management Platform</h2>
+
+    <p>
+      I designed and developed a centralized management platform for
+      XRAN products, providing unified control and visibility across
+      the entire product lifecycle.
+    </p>
+
+    <p>
+      The platform supports configuration management, performance
+      monitoring, fault and alarm handling, log management, system
+      monitoring, and software installation and upgrades.
+    </p>
+
+    <p>
+      Architecturally, the system is built using PostgreSQL and
+      Spring Boot–based microservices, with REST APIs, Kafka events,
+      and streaming connections enabling scalable data ingestion
+      and communication.
+    </p>
+
+    <p>
+      All services are containerized and deployed on Kubernetes‑based
+      clusters, including k3s and OpenShift.
+    </p>
+
+    <hr/>
+
+    <h2>Architecture & Implementation</h2>
+
+    <p>
+      I designed service boundaries, inter‑service communication
+      patterns, and data exchange contracts. Services were packaged
+      as Docker images and deployed as microservices.
+    </p>
+
+    <p>
+      Kafka was used extensively for inter‑service communication,
+      enabling a near event‑driven architecture across the platform.
+      REST APIs and streaming connections supported both synchronous
+      and real‑time data flows.
+    </p>
+
+    <p>
+      APIs were published using OpenAPI 3.0 / Swagger, and SDKs were
+      developed and shared with customers to support external
+      integrations with the centralized management system.
+    </p>
+
+    <hr/>
+
+    <h2>Security & Access Management</h2>
+
+    <p>
+      Security was a core design principle. I implemented OAuth2 and
+      OpenID Connect authentication across all user‑facing services.
+      Istio was used as the service mesh gateway, with oauth2‑proxy
+      providing authentication and authorization enforcement.
+    </p>
+
+    <p>
+      The platform integrated with Keycloak, customized for product‑
+      specific requirements, and supported customer directory
+      integrations including LDAP, Active Directory, and external
+      identity providers.
+    </p>
+
+    <p>
+      SAML integration was implemented for customer environments such
+      as Verizon, along with mutual TLS authentication using
+      certificates.
+    </p>
+
+    <hr/>
+
+    <h2>APIs & Integrations</h2>
+
+    <p>
+      I collaborated closely with customers and system integrators,
+      including Cisco, SoftBank, and Wind Tre, to support integrations
+      with external systems.
+    </p>
+
+    <p>
+      In addition to REST APIs, SOAP APIs and SDKs were developed using
+      JAX‑WS. These interfaces were later deprecated in favor of
+      modern REST‑based integrations.
+    </p>
+
+    <hr/>
+
+    <h2>Operations, Monitoring & Automation</h2>
+
+    <p>
+      I designed and implemented automated configuration management
+      with backup and continuous validation, ensuring that correct
+      configurations were consistently applied across all managed
+      elements.
+    </p>
+
+    <p>
+      Prometheus was used to collect performance metrics from all
+      nodes, with Grafana providing visualization and dashboards.
+      Centralized logging, fault handling, and alarm management were
+      built into the platform.
+    </p>
+
+    <p>
+      NGINX was integrated for front‑end traffic handling and
+      request routing.
+    </p>
+
+    <hr/>
+
+    <h2>Configuration Management & Orchestration</h2>
+
+    <p>
+      The platform integrated with SaltStack using CherryPy REST APIs
+      to support configuration and orchestration workflows.
+    </p>
+
+    <p>
+      Ansible jobs were used to invoke automation playbooks, which in
+      turn triggered Helm chart deployments on targeted Kubernetes
+      clusters.
+    </p>
+
+    <hr/>
+
+    <h2>UI & Real‑Time Communication</h2>
+
+    <p>
+      User interfaces were developed using Angular. Real‑time updates
+      were delivered to the UI using WebSockets and Server‑Sent Events
+      (SSE).
+    </p>
+
+    <p>
+      Kafka listeners, Kafka Streams, and producers were implemented
+      to support real‑time event processing and data propagation.
+    </p>
+
+    <hr/>
+
+    <h2>Release Management & Delivery</h2>
+
+    <p>
+      XRAN product development followed a release‑based model, with
+      each release treated as an individual project and owned end‑to‑
+      end by the team.
+    </p>
+
+    <p>
+      Over a ten‑year period, I managed the design and delivery of more
+      than 30 major and minor releases, coordinating architecture,
+      development, and delivery across teams.
+    </p>
+
+    <footer>
+      <p>XRAN Platform Experience · JMA</p>
+    </footer>
+
+  </main>
+</body>
+</html>
